@@ -25,11 +25,31 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
+    <TextView
+        android:id="@+id/text_view_appName_waiting_screen"
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/text_view_wait_text"
+        android:layout_centerHorizontal="true"
+        android:text="TechCom Power Fault Detector"
+        android:textSize="@dimen/_18ssp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/text_view_wait_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/progressBar"
+        android:text="please wait untill the content gets loaded"
+        android:textColor="@color/colorTransparentWhite"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_45sdp"/>
+
     <ProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
-        android:id="@+id/progressBar"
         android:progressDrawable="@drawable/circle"
         android:layout_centerInParent="true"/>
-
 </RelativeLayout>

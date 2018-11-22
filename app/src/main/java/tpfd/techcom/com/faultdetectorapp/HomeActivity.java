@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -15,6 +16,7 @@ public class HomeActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private Boolean isFirstRun;
     private ProgressBar progressBar;
+    private TextView appNameTextView, waitTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class HomeActivity extends AppCompatActivity {
             finish();
         }
 
+        appNameTextView = findViewById(R.id.text_view_appName_waiting_screen);
+        waitTextView = findViewById(R.id.text_view_wait_text);
         progressBar = findViewById(R.id.progressBar);
 
         swipeRefreshLayout = findViewById(R.id.swipeContainer);
@@ -37,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webView.loadUrl("http://192.168.1.150:8000/dashboard/#");
 
-        webView.setWebViewClient(new AppWebViewClient(progressBar));
+        webView.setWebViewClient(new AppWebViewClient(progressBar, appNameTextView, waitTextView));
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
